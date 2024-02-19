@@ -1,0 +1,16 @@
+/* NotFound/styles.css */
+.not-found-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+  }
+
+.Link {
+    text-decoration: underline;
+    color: #007bff;
+    cursor: pointer;
+  }
+  
