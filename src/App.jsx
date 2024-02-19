@@ -1,4 +1,5 @@
 import RoutesIndex from "./routes"
+import './App.css'
 
 import AuthProviderContext from './context/AuthProvider.jsx';
 

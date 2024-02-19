@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    font-family: 'Bebas Neue', sans-serif;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    padding: 20;
+}
+
+.text {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.icons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.icon {
+    margin-left: 20px;
+}
+.add-movie {
+    margin-left: 50px;
+}
