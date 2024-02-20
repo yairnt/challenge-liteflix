@@ -1,0 +1,31 @@
+.maintitle-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100vw;
+}
+
+.movie-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 80%;
+  margin: 0 10%;
+  position: relative;
+  top: 460px;
+}
+
+.buttons {
+  display:flex;
+  flex-direction: row;
+  margin: 10px;
+  gap: 16px;
+}
+
+.maintitle {
+  letter-spacing: 20px;
+}
+
+.description {
+  letter-spacing: 8px;
+}

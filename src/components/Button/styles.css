@@ -1,0 +1,39 @@
+.button-play {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #242424;
+    color: white;
+    padding: 10px 20px;
+    width: 248px;
+    height: 56px;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: normal;
+    gap: 10px;
+    &:hover {
+        background-color: #24242466;
+    }
+}
+
+.button-add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #24242477;
+    border: 1px solid #FFF;
+    color: white;
+    padding: 10px 20px;
+    width: 248px;
+    height: 56px;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: normal;
+    gap: 10px;
+    &:hover {
+        background-color: #242424;
+        border: 1px solid #242424;
+    }
+}
+

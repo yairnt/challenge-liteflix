@@ -2,6 +2,8 @@ import React from "react";
 import NavBar from "../../components/NavBar";
 
 import './styles.css';
+import MainMovie from "../../components/MainMovie";
+import MovieMiniature from "../../components/MovieMiniature";
 
 function Home() {
   return (
@@ -9,7 +11,10 @@ function Home() {
       <div className="container">
         <NavBar />
       </div>
-
+      <div className="mainmovie">
+        <MainMovie />
+      </div>
+      <MovieMiniature />
     </div>
   )
 }
