@@ -7,6 +7,7 @@ import MovieMiniature from '../MovieMiniature';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './styles.css'
+import Dropdown from '../Dropdown';
 
 
 const CustomArrow = ({ onClick, direction }) => {
@@ -18,18 +19,19 @@ const CustomArrow = ({ onClick, direction }) => {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    width: '100%',
   };
 
   if (direction === 'next') {
     return (
-      <button onClick={onClick} style={{ ...arrowStyles, bottom: '2px', right: 'calc(50% - 1.5rem)' }}>
+      <button onClick={onClick} style={{ ...arrowStyles, bottom: '-10px' }}>
         <img src={arrowDown} />
       </button>
     );
   }
   
   return (
-    <button onClick={onClick} style={{ ...arrowStyles, top: '-10px', left: 'calc(50% - 1.5rem)' }}>
+    <button onClick={onClick} style={{ ...arrowStyles, top: '-20px' }}>
       <img src={arrowUp} />
     </button>
   );
@@ -63,6 +65,9 @@ const MoviesCarousel = () => {
 
   return (
     <div className='carousel-container animate__animated animate__fadeInRight'>
+      <div className='dropdown'>
+        <Dropdown />
+      </div>
       <Slider {...settings}>
         {console.log(movies)}
         {movies?.map((movie, index) => (

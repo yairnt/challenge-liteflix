@@ -4,7 +4,7 @@
 }
 
 .carousel-container {
-  margin-top: 90px;
+  margin-top: 40px;
   width: 280px;
 }
 
@@ -12,4 +12,14 @@
   object-fit: cover;
   width: 100px;
   height: 80px;
+}
+
+.dropdown {
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  height: 25px;
 }
