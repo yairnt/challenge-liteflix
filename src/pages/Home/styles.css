@@ -2,7 +2,6 @@
   background-image: url("../../assets/Bkg.png");
   background-size: cover;
   background-position: center 70%;
-  background-size: cover;
   height: 100vh;
   width: 100vw;
   animation: fadeInOut 2.5s alternate;
@@ -21,4 +20,15 @@
   100% {
     opacity: 1;
   }
+}
+
+.moviescarousel-container {
+  position: absolute;
+  right: 180px;
+  top: 0;
+  overflow: visible;
+}
+
+.main-content{
+  position:relative;
 }

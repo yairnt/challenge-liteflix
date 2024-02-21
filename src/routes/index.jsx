@@ -6,6 +6,7 @@ import {
 import Home from '../pages/Home';
 import Debug from '../pages/Debug';
 import NotFound from "../pages/NotFound";
+import MoviesCarousel from "../components/MoviesCarousel";
 
 function RoutesIndex() {
     const router = createBrowserRouter([

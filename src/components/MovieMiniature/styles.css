@@ -1,2 +1,109 @@
-.asd {
+.video-card {
+  position: relative;
+  width: 250px;
+  overflow: hidden;
+  border-radius: 4px;
+  margin: 16px;
+  margin-right: 60px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.thumbnail {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.default {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 5%, rgb(24, 24, 24) 50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  color: #FFF;
+}
+
+.video-card:hover .overlay {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.video-card:hover .default {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.title {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  margin: 0;
+  margin-top: 4px;
+}
+
+.video-card:hover {
+  transform: scale(1.1, 1.25);
+}
+
+.overlay-title-heart {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.overlay-play-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-left: 10px;
+  letter-spacing: 5px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.overlay-right {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.overlay-desc {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  font-size: 12px;
+  font-family: 'Roboto';
+  margin: 10px;
+  margin-left: 20px;
+  cursor: default;
+}
+
+.overlay-title-bottom {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }

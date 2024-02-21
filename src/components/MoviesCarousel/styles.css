@@ -1,0 +1,15 @@
+.movie-carousel {
+  width: 120px;
+  height: 70px;
+}
+
+.carousel-container {
+  margin-top: 90px;
+  width: 280px;
+}
+
+.carousel-img {
+  object-fit: cover;
+  width: 100px;
+  height: 80px;
+}

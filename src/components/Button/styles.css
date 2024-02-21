@@ -11,9 +11,13 @@
     cursor: pointer;
     font-size: 24px;
     font-weight: normal;
+    letter-spacing: 2px;
     gap: 10px;
     &:hover {
         background-color: #24242499;
+        border: 1px solid #FFF;
+        transform: scale(1.1);
+        transition: 0.3s;
     }
 }
 
@@ -30,10 +34,13 @@
     cursor: pointer;
     font-size: 24px;
     font-weight: normal;
+    letter-spacing: 2px;
     gap: 10px;
     &:hover {
         background-color: #242424;
         border: 1px solid #242424;
+        transform: scale(1.1);
+        transition: 0.3s;
     }
 }
 
