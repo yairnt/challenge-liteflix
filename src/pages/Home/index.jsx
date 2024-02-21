@@ -13,8 +13,9 @@ function Home() {
       </div>
       <div className="mainmovie">
         <MainMovie />
+        <MovieMiniature />
       </div>
-      <MovieMiniature />
+
     </div>
   )
 }

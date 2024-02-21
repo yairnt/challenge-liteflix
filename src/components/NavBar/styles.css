@@ -19,6 +19,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .icons-container {
@@ -31,6 +32,7 @@
 
 .icon {
     margin-left: 20px;
+    cursor: pointer;
 }
 
 .add-movie {

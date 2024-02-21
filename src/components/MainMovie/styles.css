@@ -24,8 +24,10 @@
 
 .maintitle {
   letter-spacing: 20px;
+  cursor: default;
 }
 
 .description {
   letter-spacing: 8px;
+  cursor: default;
 }

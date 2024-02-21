@@ -22,3 +22,7 @@ p {
 button {
   font-family: inherit;
 }
+
+:root {
+  --animate-duration: 1500ms;
+}

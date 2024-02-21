@@ -8,12 +8,12 @@ function Button({ type = 'play' }) {
   return (
     <div>
       {type === 'play' ? 
-      (<button type='text' className="button-play">
+      (<button type='text' className="button-play animate__animated animate__zoomIn">
         <img src={playIcon} style={{gap: '10px'}}/>
           REPRODUCIR
       </button>
       ) : (
-      <button type='text' className="button-add">
+      <button type='text' className="button-add animate__animated animate__zoomIn">
         <img src={plusIcon} style={{gap: '10px'}}/>
         MI LISTA
       </button>)

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-
-import './styles.css';
+import Text from "../Text";
 import { getMovies } from "../../apis/movies";
+import './styles.css';
 
 function MovieMiniature() {
   const [movies, setMovies] = useState();
@@ -16,9 +16,11 @@ function MovieMiniature() {
   }, [])
 
   return (
-    <div className="container">
+    <div className="asd">
       {console.log(movies)}
-      hola
+      <Text>
+        HOLAAAAA
+      </Text>
     </div>
   )
 }

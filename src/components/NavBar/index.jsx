@@ -8,7 +8,7 @@ import './styles.css';
 
 function NavBar() {
   return (
-    <div className="container animate__animated animate__backInDown">
+    <div className="container animate__animated animate__zoomIn">
       <div className="maincontainer">
         <div className="text">
           <Text color='#64EEBC' customSize={36} weight={900}>
