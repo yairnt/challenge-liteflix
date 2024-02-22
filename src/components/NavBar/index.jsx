@@ -1,20 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Text from '../Text'
-import { HiMenuAlt3 } from "react-icons/hi";
-import { IoNotificationsOutline } from "react-icons/io5";
 import perfilIcon from '../../assets/Perfil.png'
-
+import { HiMenuAlt3 } from "react-icons/hi";
+import notifications from "../../assets/notification.png"
 import './styles.css';
 
-function NavBar() {
+function NavBar({ handleMenuToggle }) {
+
   return (
     <div className="container animate__animated animate__zoomIn">
       <div className="maincontainer">
-        <div className="text">
-          <Text color='#64EEBC' customSize={36} weight={900}>
-            LITE 
+        <div className="texts">
+          <Text color='#64EEBC' customSize={36} weight={700} >
+            LITE
           </Text>
-          <Text color='#64EEBC' customSize={36} weight={100}>
+          <Text color='#64EEBC' customSize={36} weight={400} >
             FLIX
           </Text>
           <div className="add-movie">
@@ -24,18 +24,17 @@ function NavBar() {
           </div>
         </div>
         <div className="icons-container">
-          <div className="icon">
-            <HiMenuAlt3 size={30} color='#FFF'/>
+          <div className="icon" onClick={handleMenuToggle} >
+            <HiMenuAlt3 size={30} color='#FFF' />
           </div>
           <div className="icon">
-            <IoNotificationsOutline size={30} color='#FFF'/>
+            <img src={notifications} alt='notifications' />
           </div>
           <div className="icon">
             <img src={perfilIcon} />
           </div>
         </div>
       </div>
-      
     </div>
   )
 }

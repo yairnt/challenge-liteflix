@@ -25,7 +25,9 @@ const Dropdown = ({ label, options = ['POPULARES', 'MIS PELICULAS'] }) => {
             VER:
           </Text>
           <div className='drop-arrowdown'>
-            {selectedOption ? selectedOption : options[0]}
+            <Text weight={700}>
+              {selectedOption ? selectedOption : options[0]}
+            </Text>
             <img src={arrowDown} style={{ height: 15, width: 20, objectFit: 'contain'}} />
           </div>
         </div>

@@ -11,7 +11,7 @@
     cursor: pointer;
     font-size: 24px;
     font-weight: normal;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     gap: 10px;
     &:hover {
         background-color: #24242499;
@@ -34,7 +34,7 @@
     cursor: pointer;
     font-size: 24px;
     font-weight: normal;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     gap: 10px;
     &:hover {
         background-color: #242424;

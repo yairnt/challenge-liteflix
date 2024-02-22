@@ -55,13 +55,17 @@ const MoviesCarousel = () => {
 
 
   async function getMoviesFromAPI() {
-    const res = await getMovies();
-    setMovies(res.results);
+    try {
+      const response = await getMovies();
+      if (response.results) setMovies(response.results);
+    } catch (error) {
+      console.error("Error al obtener las películas:", error);
+    }
   }
 
   useEffect(() => {
     getMoviesFromAPI();
-  }, [])
+  }, []);
 
   return (
     <div className='carousel-container animate__animated animate__fadeInRight'>

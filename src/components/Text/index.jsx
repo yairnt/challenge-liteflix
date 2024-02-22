@@ -8,7 +8,7 @@ import './styles.css';
 const Text = ({
   as: Component = 'p',
   size,
-  weight,
+  weight = 400,
   customSize,
   color,
   children,

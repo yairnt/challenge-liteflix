@@ -30,4 +30,6 @@
 .description {
   letter-spacing: 8px;
   cursor: default;
+  display: flex;
+  flex-direction: row;
 }

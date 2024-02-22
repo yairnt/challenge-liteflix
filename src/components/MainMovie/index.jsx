@@ -10,7 +10,10 @@ function MainMovie() {
       <div className="movie-container">
         <div className="description animate__animated animate__lightSpeedInLeft">
           <Text color='#FFF' customSize={20} weight={400}>
-            ORIGINAL DE LITEFLIX
+            ORIGINAL DE {' '}
+          </Text>
+          <Text color='#FFF' customSize={20} weight={700}>
+            LITEFLIX
           </Text>
         </div>
         <div className="maintitle animate__animated animate__lightSpeedInRight">
@@ -19,7 +22,7 @@ function MainMovie() {
           </Text>
         </div>
         <div className="buttons">
-          <Button type='play'/>
+          <Button type='play' />
           <Button type='add' />
         </div>
       </div>

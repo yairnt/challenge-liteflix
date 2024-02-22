@@ -1,7 +1,18 @@
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url(../public/fonts/bebas_neue/TTF/BebasNeue_Bold.ttf);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url(../public/fonts/bebas_neue/TTF/BebasNeue\ Light.ttf);
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Bebas Neue';
 }
 
 h1 {

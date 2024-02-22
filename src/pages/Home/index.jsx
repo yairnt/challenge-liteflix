@@ -1,16 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "../../components/NavBar";
-
-import './styles.css';
 import MainMovie from "../../components/MainMovie";
-import MovieMiniature from "../../components/MovieMiniature";
 import MoviesCarousel from "../../components/MoviesCarousel";
+import Menu from "../../components/Menu"
+import './styles.css';
 
 function Home() {
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
+  const handleMenuToggle = () => {
+    setMenuOpen(!isMenuOpen);
+  };
+
   return (
     <div className="background">
       <div className="container">
-        <NavBar />
+        <NavBar isMenuOpen={isMenuOpen} handleMenuToggle={handleMenuToggle} />
+        <Menu isOpen={isMenuOpen} handleMenuToggle={handleMenuToggle} />
       </div>
       <div className="main-content">
         <div className="mainmovie">
@@ -20,7 +26,6 @@ function Home() {
           <MoviesCarousel />
         </div>
       </div>
-
     </div>
   )
 }
