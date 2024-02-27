@@ -11,8 +11,9 @@
 
 .thumbnail {
   width: 100%;
-  height: auto;
+  height: 150px;
   display: block;
+  object-fit: cover;
 }
 
 .default {

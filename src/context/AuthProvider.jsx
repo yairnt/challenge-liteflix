@@ -5,12 +5,15 @@ import { AuthProvider } from './AuthContext';
 
 function AppProviderContext({ children }) {
     const [isOpenModal, setIsOpenModal] = useState(false)
+    const [allMovies, setAllMovies] = useState([])
 
     return (
         <AuthProvider
             value={{
                 isOpenModal,
-                setIsOpenModal
+                setIsOpenModal,
+                allMovies,
+                setAllMovies
             }}
         >
             {children}

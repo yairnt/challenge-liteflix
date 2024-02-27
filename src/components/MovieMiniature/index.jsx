@@ -1,26 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import playMovie from '../../assets/playmovie.png';
 import emptyLike from '../../assets/emptylike.png';
 import miniPlay from '../../assets/miniplay.png';
 import filledLike from '../../assets/filledlike.png';
 import star from '../../assets/star1.png';
+import imgNotFound from '../../assets/image-not-found.png'
 
 import './styles.css';
 
 function MovieMiniature({
   title = 'TITULO',
-  img = 'pWsD91G2R1Da3AKM3ymr3UoIfRb.jpg',
-  desc = 'Erase una vez una cosa q paso ahi nose q onda y blblal hsadjfjkh dsjk fdsf jksdjkhf sadjkhf sjkfh dskj fkjsdkhja ',
+  img,
+  desc = 'MOVIE DESCRIPTION',
   rate = '5',
-  year = '2020'
+  year = '2020',
+  from,
 }) {
   const IMG_BASE_URL = import.meta.env.VITE_IMG_BASE_URL;
+  const LOCAL_BASE_URL = import.meta.env.VITE_LOCAL_BASE_URL
   const [like, setLike] = useState(false);
 
   function handleLike() {
     setLike(!like);
   }
-
+  console.log('imagennnn', img);
+  const imageSource = from === 'api' ? IMG_BASE_URL + img : LOCAL_BASE_URL + img;
+  console.info('image source', imageSource);
 
   return (
     <div className="video-card">
@@ -39,7 +44,7 @@ function MovieMiniature({
           </div>
         </div>
         <div className="overlay-desc">
-          {desc.substring(0, 80)+'...'}
+          {desc.substring(0, 80) + '...'}
         </div>
         <div className="overlay-title-bottom">
           <div className="overlay-play-title">
@@ -51,7 +56,7 @@ function MovieMiniature({
           </div>
         </div>
       </div>
-      <img className="thumbnail" src={IMG_BASE_URL + img} alt={title} />
+      <img className="thumbnail" src={imageSource} alt={title} onError={(event) => event.target.src = imgNotFound} />
     </div>
   );
 }

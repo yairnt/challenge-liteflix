@@ -12,9 +12,10 @@ const UploadMovie = () => {
   const [isUploadCompleted, setIsUploadCompleted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [progress, setProgress] = useState(0);
-  const { isOpenModal, setIsOpenModal } = useContext(AuthContext);
+  const { isOpenModal, setIsOpenModal, allMovies, setAllMovies } = useContext(AuthContext);
 
   const uploadFile = async () => {
+
     const duration = 7000;
     const interval = 100;
     const steps = duration / interval;
@@ -32,8 +33,17 @@ const UploadMovie = () => {
     }, interval);
 
     try {
+      const response = await uploadMovie({ image, title });
+      console.info('respuesta del servidor', response)
+      console.info(response.image)
       await new Promise((resolve) => setTimeout(resolve, duration));
-      await uploadMovie({ image, title });
+      setIsUploadCompleted(true);
+      const transformResponseToMovie = {
+        ...response,
+        imageUrl: response.image,
+        from: 'db',
+      }
+      setAllMovies([...allMovies, transformResponseToMovie])
     } catch (err) {
       console.error('Err uploadMovie:', err);
     } finally {
@@ -46,6 +56,7 @@ const UploadMovie = () => {
 
   const onCloseModal = () => {
     setIsOpenModal(false);
+    setIsUploadCompleted(false);
   };
 
   const handleImageChange = (e) => {
@@ -58,32 +69,51 @@ const UploadMovie = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     setIsLoading(true);
     uploadFile();
   };
 
   return (
     <div>
-      {isOpenModal && (
-        <div className="modal-overlay">
-          <div className="modal">
-            <form onSubmit={handleSubmit}>
-              <div className='icon-close' onClick={onCloseModal}>
-                <img src={Close} alt='close' />
+      {isUploadCompleted ?
+        <>
+          <div className="modal-overlay">
+            <div className="modal">
+              <div className='modal-container'>
+                <div className='icon-close' onClick={onCloseModal}>
+                  <img src={Close} alt='close' />
+                </div>
+                <Text color='#64EEBC' weight={700} customSize={26}>
+                  LITEFLIX
+                </Text>
+                <Text color='#FFF' weight={700} customSize={22}>FELICITACIONES!</Text>
+                <Text color='#FFF' weight={400} customSize={18}>{title ? title : 'LA PELICULA'} FUE CORRECTAMENTE SUBIDA</Text>
+                <button className='button-home' onClick={onCloseModal}>IR A HOME</button>
               </div>
-              <Text color='#64EEBC' weight={700} customSize={24}>
-                Agregar Pelicula
-              </Text>
-              {isLoading ? (<ProgressBar progress={progress} />) :
-                (<input type="file" name="image" id="image" accept="image/*" onChange={handleImageChange} required />)
-              }
-              <input type="text" name="title" id="title" value={title} placeholder='TITULO' onChange={handleTitleChange} required />
-              <button type="submit">Subir Película</button>
-            </form>
+            </div>
           </div>
-        </div>
-      )}
+        </> :
+        <>
+          {isOpenModal && (
+            <div className="modal-overlay">
+              <div className="modal">
+                <form onSubmit={handleSubmit}>
+                  <div className='icon-close' onClick={onCloseModal}>
+                    <img src={Close} alt='close' />
+                  </div>
+                  <Text color='#64EEBC' weight={700} customSize={24}>
+                    Agregar Pelicula
+                  </Text>
+                  {isLoading ? (<ProgressBar progress={progress} />) :
+                    (<input type="file" name="image" id="image" accept="image/*" onChange={handleImageChange} required />)
+                  }
+                  <input type="text" name="title" id="title" value={title} placeholder='TITULO' onChange={handleTitleChange} required />
+                  <button type="submit">Subir Película</button>
+                </form>
+              </div>
+            </div>
+          )}</>}
+
     </div>
   );
 };

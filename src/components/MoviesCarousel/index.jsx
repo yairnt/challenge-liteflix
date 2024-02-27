@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useContext } from 'react';
 import Slider from 'react-slick';
-import { getMovies } from "../../apis/movies";
+import { getMovies, getMoviesFromDB } from "../../apis/movies";
 import arrowUp from "../../assets/arrowup.png"
 import arrowDown from "../../assets/arrowdown.png"
 import MovieMiniature from '../MovieMiniature';
+import AuthContext from '../../context/AuthContext';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import './styles.css'
 import Dropdown from '../Dropdown';
+import './styles.css'
 
 
 const CustomArrow = ({ onClick, direction }) => {
@@ -29,7 +30,7 @@ const CustomArrow = ({ onClick, direction }) => {
       </button>
     );
   }
-  
+
   return (
     <button onClick={onClick} style={{ ...arrowStyles, top: '-25px' }}>
       <img src={arrowUp} />
@@ -38,8 +39,7 @@ const CustomArrow = ({ onClick, direction }) => {
 };
 
 const MoviesCarousel = () => {
-  const IMG_BASE_URL = import.meta.env.VITE_IMG_BASE_URL;
-  const [movies, setMovies] = useState([]);
+  const { allMovies, setAllMovies } = useContext(AuthContext);
 
   const settings = {
     dots: false,
@@ -53,18 +53,42 @@ const MoviesCarousel = () => {
     verticalSwiping: true,
   };
 
-
   async function getMoviesFromAPI() {
     try {
       const response = await getMovies();
-      if (response.results) setMovies(response.results);
+      if (response.results) {
+        const moviesWithSource = response.results.map(movie => ({ ...movie, from: 'api' }));
+        return moviesWithSource;
+      }
     } catch (error) {
-      console.error("Error al obtener las películas:", error);
+      console.error("Error getting movies from api:", error);
+    }
+  }
+
+  async function getUserMovies() {
+    try {
+      const response = await getMoviesFromDB();
+      if (response) {
+        const userMoviesWithSource = response.map(movie => ({ ...movie, from: 'db' }));
+        return userMoviesWithSource;
+      }
+    } catch (error) {
+      console.error('Error getting movies from db', error)
     }
   }
 
   useEffect(() => {
-    getMoviesFromAPI();
+    const fetchData = async () => {
+      try {
+        const moviesFromAPIResponse = await getMoviesFromAPI();
+        const moviesFromDBResponse = await getUserMovies();
+        setAllMovies([...moviesFromAPIResponse, ...moviesFromDBResponse])
+        console.info('allmoves', allMovies)
+      } catch (error) {
+        console.error('Error getting movies', error)
+      }
+    };
+    fetchData();
   }, []);
 
   return (
@@ -72,17 +96,28 @@ const MoviesCarousel = () => {
       <div className='dropdown'>
         <Dropdown />
       </div>
+      {console.info(allMovies)}
       <Slider {...settings}>
-        {console.log(movies)}
-        {movies?.map((movie, index) => (
+        {allMovies?.map((movie, index) => (
           <div className='carousel-img' key={index}>
-            <MovieMiniature
-              title={movie.title}
-              img={movie.backdrop_path}
-              rate={movie.vote_average}
-              desc={movie.overview}
-              year={movie.release_date}
-            />
+            {movie.from === 'api' ? (
+              <MovieMiniature
+                title={movie.title}
+                img={movie.backdrop_path}
+                rate={movie.vote_average}
+                desc={movie.overview}
+                year={movie.release_date}
+                from={movie.from}
+              />) : (
+              <MovieMiniature
+                title={movie.title}
+                img={movie.imageUrl}
+                rate={10}
+                desc={'Description'}
+                year={'2020'}
+                from={movie.from}
+              />
+            )}
           </div>
         ))}
       </Slider>

@@ -48,6 +48,25 @@ form {
     text-align: center;
   }
 
+  .modal-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    border-radius: 10px;
+    letter-spacing: 2px;
+    top: 30%;
+    left: 35%;
+    background-color: #242424;
+    padding: 20px;
+    height: 40%;
+    width: 30%;
+    z-index: 2000;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards;
+  }
+
   input[type="text"]:focus {
     outline: none;
     border-color: transparent;
@@ -70,6 +89,10 @@ form {
     background-color: #ffffff77;
     color: rgb(0, 0, 0);
     cursor: pointer;
+  }
+
+  .button-home {
+    background-color: white;
   }
 
 

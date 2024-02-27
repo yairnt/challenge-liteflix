@@ -15,6 +15,18 @@ async function getMovies() {
   }
 }
 
+async function getMoviesFromDB() {
+  try {
+    const response = await axiosInstance.get(`${LOCAL_BASE_URL}/images`);
+    if (response) {
+      return response.data;
+    }
+  } catch (err) {
+    console.info('Err getMoviesFromDB :', err);
+    throw err;
+  }
+}
+
 async function uploadMovie(data) {
   try {
     const response = await axiosInstance.post(`${LOCAL_BASE_URL}/upload`, data, {
@@ -23,6 +35,7 @@ async function uploadMovie(data) {
       },
     });
     console.log('Server response:', response.data);
+    return response.data;
   } catch (error) {
     console.error('Error uploading movie:', error);
   }
@@ -31,4 +44,5 @@ async function uploadMovie(data) {
 export {
   getMovies,
   uploadMovie,
+  getMoviesFromDB,
 }
