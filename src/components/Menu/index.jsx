@@ -19,10 +19,10 @@ const Menu = ({isOpen, handleMenuToggle}) => {
     <div style={{display: isOpen ? 'block' : 'none' }}>
       <div className="menu animate__animated animate__bounceInRight">
         <div className="icons-container">
-          <div className="icon" onClick={handleMenuToggle}>
+          <div className="icon-x" onClick={handleMenuToggle}>
             <img src={close} />
           </div>
-          <div className="icon-user">
+          <div className="icon-users">
             <div className="icon">
               <img src={notifications} alt='notifications' onClick={handleMenuToggle}/>
             </div>

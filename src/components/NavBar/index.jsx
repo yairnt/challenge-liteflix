@@ -26,13 +26,13 @@ function NavBar({ handleMenuToggle }) {
           </div>
         </div>
         <div className="icons-container">
-          <div className="icon" onClick={handleMenuToggle} >
+          <div className="icon-perfil" onClick={handleMenuToggle} >
             <HiMenuAlt3 size={30} color='#FFF' />
           </div>
-          <div className="icon">
+          <div className="icon-nav">
             <img src={notifications} alt='notifications' />
           </div>
-          <div className="icon">
+          <div className="icon-perfil">
             <img src={perfilIcon} />
           </div>
         </div>

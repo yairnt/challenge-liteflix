@@ -13,6 +13,11 @@
   margin: 0 10%;
   position: relative;
   top: 460px;
+  @media only screen and (max-width: 800px) {
+    font-size: 10px;
+    top: 180px;
+    align-items: center;
+  }
 }
 
 .buttons {
@@ -20,11 +25,20 @@
   flex-direction: row;
   margin: 10px;
   gap: 16px;
+  @media only screen and (max-width: 800px) {
+    margin-top: 40px;
+    flex-direction: column;
+  }
 }
 
 .maintitle {
   letter-spacing: 20px;
   cursor: default;
+  @media only screen and (max-width: 800px) {
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 40px;
+  }
 }
 
 .description {
@@ -33,3 +47,4 @@
   display: flex;
   flex-direction: row;
 }
+

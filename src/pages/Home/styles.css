@@ -29,6 +29,15 @@
   overflow: visible;
 }
 
+@media only screen and (max-width: 800px) {
+  .background {
+    
+  }
+  .moviescarousel-container {
+    display: none;
+  }
+}
+
 .main-content{
   position:relative;
 }
