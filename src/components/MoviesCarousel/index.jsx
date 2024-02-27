@@ -82,14 +82,17 @@ const MoviesCarousel = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const moviesFromAPIResponse = await getMoviesFromAPI();
-        const moviesFromDBResponse = await getUserMovies();
+        const [moviesFromAPIResponse, moviesFromDBResponse] = await Promise.all([
+          getMoviesFromAPI(),
+          getUserMovies()
+        ]);
         const combinedMovies = [...moviesFromAPIResponse, ...moviesFromDBResponse];
-        setAllMovies(combinedMovies)
+        setAllMovies(combinedMovies);
       } catch (error) {
-        console.error('Error getting movies', error)
+        console.error('Error getting movies', error);
       }
     };
+  
     fetchData();
   }, []);
 

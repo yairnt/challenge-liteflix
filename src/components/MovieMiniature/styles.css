@@ -26,6 +26,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(to bottom, transparent 1%, rgb(24, 24, 24) 100%);
 }
 
 .overlay {
@@ -36,7 +37,7 @@
   height: 100%;
   font-family: 'Roboto';
   font-weight: 300;
-  background: linear-gradient(to bottom, transparent 5%, rgb(24, 24, 24) 50%);
+  background: linear-gradient(to bottom, transparent 5%, rgb(24, 24, 24) 70%);
   display: flex;
   flex-direction: column;
   align-items: center;
