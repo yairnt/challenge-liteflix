@@ -61,7 +61,8 @@ const MoviesCarousel = () => {
         return moviesWithSource;
       }
     } catch (error) {
-      console.error("Error getting movies from api:", error);
+      console.error("Error getting movies from external api:", error);
+      return [];
     }
   }
 
@@ -73,7 +74,8 @@ const MoviesCarousel = () => {
         return userMoviesWithSource;
       }
     } catch (error) {
-      console.error('Error getting movies from db', error)
+      console.error('Error getting movies from db, please make sure db is up', error)
+      return [];
     }
   }
 
@@ -82,8 +84,8 @@ const MoviesCarousel = () => {
       try {
         const moviesFromAPIResponse = await getMoviesFromAPI();
         const moviesFromDBResponse = await getUserMovies();
-        setAllMovies([...moviesFromAPIResponse, ...moviesFromDBResponse])
-        console.info('allmoves', allMovies)
+        const combinedMovies = [...moviesFromAPIResponse, ...moviesFromDBResponse];
+        setAllMovies(combinedMovies)
       } catch (error) {
         console.error('Error getting movies', error)
       }

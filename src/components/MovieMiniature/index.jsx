@@ -23,10 +23,8 @@ function MovieMiniature({
   function handleLike() {
     setLike(!like);
   }
-  console.log('imagennnn', img);
   const imageSource = from === 'api' ? IMG_BASE_URL + img : LOCAL_BASE_URL + img;
-  console.info('image source', imageSource);
-
+  
   return (
     <div className="video-card">
       <div className="default">
