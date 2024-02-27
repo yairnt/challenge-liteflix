@@ -34,7 +34,7 @@ async function uploadMovie(data) {
         'Content-Type': 'multipart/form-data',
       },
     });
-    console.log('Server response:', response.data);
+    console.info('Server response:', response.data);
     return response.data;
   } catch (error) {
     console.error('Error uploading movie:', error);
