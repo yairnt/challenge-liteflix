@@ -3,6 +3,7 @@ import NavBar from "../../components/NavBar";
 import MainMovie from "../../components/MainMovie";
 import MoviesCarousel from "../../components/MoviesCarousel";
 import Menu from "../../components/Menu"
+import UploadMovie from "../../components/UploadMovie"
 import './styles.css';
 
 function Home() {
@@ -14,6 +15,7 @@ function Home() {
 
   return (
     <div className="background">
+      <UploadMovie />
       <div className="container">
         <NavBar isMenuOpen={isMenuOpen} handleMenuToggle={handleMenuToggle} />
         <Menu isOpen={isMenuOpen} handleMenuToggle={handleMenuToggle} />

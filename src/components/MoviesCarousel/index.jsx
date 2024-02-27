@@ -31,7 +31,7 @@ const CustomArrow = ({ onClick, direction }) => {
   }
   
   return (
-    <button onClick={onClick} style={{ ...arrowStyles, top: '-20px' }}>
+    <button onClick={onClick} style={{ ...arrowStyles, top: '-25px' }}>
       <img src={arrowUp} />
     </button>
   );

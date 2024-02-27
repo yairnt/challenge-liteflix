@@ -4,15 +4,13 @@ import { useState } from 'react';
 import { AuthProvider } from './AuthContext';
 
 function AppProviderContext({ children }) {
-    const [users, setUsers] = useState([{
-        message: 'Felicidades por este nuevo proyecto!'
-    }])
+    const [isOpenModal, setIsOpenModal] = useState(false)
 
     return (
         <AuthProvider
             value={{
-                users,
-                setUsers
+                isOpenModal,
+                setIsOpenModal
             }}
         >
             {children}

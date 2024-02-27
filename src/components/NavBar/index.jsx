@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Text from '../Text'
 import perfilIcon from '../../assets/Perfil.png'
 import { HiMenuAlt3 } from "react-icons/hi";
 import notifications from "../../assets/notification.png"
+import AuthContext from "../../context/AuthContext"
 import './styles.css';
 
 function NavBar({ handleMenuToggle }) {
+  const { isOpenModal, setIsOpenModal } = useContext(AuthContext);
 
   return (
     <div className="container animate__animated animate__zoomIn">
@@ -17,7 +19,7 @@ function NavBar({ handleMenuToggle }) {
           <Text color='#64EEBC' customSize={36} weight={400} >
             FLIX
           </Text>
-          <div className="add-movie">
+          <div className="add-movie" onClick={ ()=> setIsOpenModal(true) }>
             <Text customSize={22} color='#FFF' weight={100}>
               + AGREGAR PELICULAS
             </Text>
