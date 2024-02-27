@@ -17,13 +17,13 @@ function MovieMiniature({
   from,
 }) {
   const IMG_BASE_URL = import.meta.env.VITE_IMG_BASE_URL;
-  const LOCAL_BASE_URL = import.meta.env.VITE_LOCAL_BASE_URL
+  const CLOUD_BASE_URL = import.meta.env.VITE_CLOUD_BASE_URL
   const [like, setLike] = useState(false);
 
   function handleLike() {
     setLike(!like);
   }
-  const imageSource = from === 'api' ? IMG_BASE_URL + img : LOCAL_BASE_URL + img;
+  const imageSource = from === 'api' ? IMG_BASE_URL + img : CLOUD_BASE_URL + img;
   
   return (
     <div className="video-card">
