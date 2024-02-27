@@ -101,7 +101,6 @@ const MoviesCarousel = () => {
       <div className='dropdown'>
         <Dropdown />
       </div>
-      {console.info(allMovies)}
       <Slider {...settings}>
         {allMovies?.map((movie, index) => (
           <div className='carousel-img' key={index}>

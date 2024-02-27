@@ -16,7 +16,12 @@ form {
     opacity: 0;
     animation: fadeIn 0.5s ease-in-out forwards;
   }
-  
+  @media only screen and (max-width: 800px) {
+    form {
+      width: 80%;
+      left: 5%;
+    }
+  }
   @keyframes fadeIn {
     from {
       opacity: 0;

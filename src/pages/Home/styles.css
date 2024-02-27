@@ -25,19 +25,32 @@
 .moviescarousel-container {
   position: absolute;
   right: 180px;
-  top: 0;
+  top: 60px;
   overflow: visible;
 }
 
 @media only screen and (max-width: 800px) {
   .background {
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
   }
-  .moviescarousel-container {
-    display: none;
-  }
-}
 
-.main-content{
-  position:relative;
+  .moviescarousel-container {
+    position: relative;
+    right: auto;
+    top: auto;
+    margin: auto;
+    overflow: auto;
+    margin-top: 200px;
+    overflow: hidden;
+    padding: 30px;
+  }
+
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }

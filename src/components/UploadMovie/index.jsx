@@ -34,8 +34,6 @@ const UploadMovie = () => {
 
     try {
       const response = await uploadMovie({ image, title });
-      console.info('respuesta del servidor', response)
-      console.info(response.image)
       await new Promise((resolve) => setTimeout(resolve, duration));
       setIsUploadCompleted(true);
       const transformResponseToMovie = {
