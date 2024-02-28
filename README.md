@@ -4,9 +4,9 @@
 
 This is a Movie Play Website created by Yair Segura
 
-This WEBAPP is already deployed on [Render](https://www.render.com/), but if you want to run locally, follow the instructions.
-The link to the web deployed is: https://challenge-liteflix-front.onrender.com/
-The link to the backend repo is: https://github.com/yairnt/movie-backend
+- This WEBAPP is already deployed on [Render](https://www.render.com/), but if you want to run locally, follow the instructions.
+- The link to the web deployed is: https://challenge-liteflix-front.onrender.com/
+- The link to the backend repo is: https://github.com/yairnt/movie-backend
 
 ## Prerequisites
 
