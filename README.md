@@ -1,8 +1,41 @@
-# React + Vite
+# FRONTEND FOR LITEFLIX (Litebox challenge)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![LITEFLIX](https://r2.easyimg.io/m884echtw/captura_de_pantalla_2024-02-28_a_la(s)_14.49.40.png)
 
-Currently, two official plugins are available:
+This is a Movie Play Website created by Yair Segura
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This WEB is already deployed on [Render](https://www.render.com/), but if you want to run locally, follow the instructions.
+
+The link to the web deployed is: https://challenge-liteflix-front.onrender.com/
+
+The link to the backend repo is: https://github.com/yairnt/movie-backend
+
+## Prerequisites
+
+Make sure you have the following installed on your machine:
+
+- [Node.js](https://nodejs.org/) (version v18.12.1 or higher)
+- [npm](https://www.npmjs.com/) (version 8.19.2 or higher)
+- [Git](https://git-scm.com/)
+
+
+## Installation
+
+1. Clone this repository to your local machine.
+    
+
+2. Navigate to the root project directory.
+
+
+3. Install project dependencies:
+
+    bash
+    npm install
+    
+
+## Run local
+
+Once you have all installed, to start the proyect run de following command:
+
+      npm run dev
+
