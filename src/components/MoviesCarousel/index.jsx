@@ -53,6 +53,7 @@ const MoviesCarousel = () => {
     prevArrow: <CustomArrow direction="prev">prev</CustomArrow>,
     vertical: true,
     verticalSwiping: true,
+    swipe: true,
   };
 
   async function getMoviesFromAPI() {
@@ -91,7 +92,7 @@ const MoviesCarousel = () => {
         const combinedMovies = [...moviesFromAPIResponse, ...moviesFromDBResponse];
         setAllMovies(combinedMovies);
         const filteredMovies = selectedOption === 'MIS PELICULAS'
-        ? combinedMovies.filter(movie => movie.from === 'db')
+        ? (combinedMovies?.filter(movie => movie.from === 'db').reverse())
         : combinedMovies;
         setFilteredMovies(filteredMovies);
       } catch (error) {
