@@ -1,13 +1,11 @@
 # FRONTEND FOR LITEFLIX (Litebox challenge)
 
-![LITEFLIX](https://r2.easyimg.io/m884echtw/captura_de_pantalla_2024-02-28_a_la(s)_14.49.40.png)
+![LITEFLIX](https://i.ibb.co/ZB6Y1MY/Captura-de-pantalla-2024-02-28-a-la-s-14-49-40.png)
 
 This is a Movie Play Website created by Yair Segura
 
-This WEB is already deployed on [Render](https://www.render.com/), but if you want to run locally, follow the instructions.
-
+This WEBAPP is already deployed on [Render](https://www.render.com/), but if you want to run locally, follow the instructions.
 The link to the web deployed is: https://challenge-liteflix-front.onrender.com/
-
 The link to the backend repo is: https://github.com/yairnt/movie-backend
 
 ## Prerequisites
