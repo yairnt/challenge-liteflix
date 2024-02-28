@@ -3,7 +3,7 @@ import Text from '../Text';
 import arrowDown from '../../assets/arrowdown2.png'
 import './styles.css'
 
-const Dropdown = ({ label, options = ['POPULARES', 'MIS PELICULAS'] }) => {
+const Dropdown = ({ label, options = ['POPULARES', 'MIS PELICULAS'], onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
 
@@ -14,6 +14,7 @@ const Dropdown = ({ label, options = ['POPULARES', 'MIS PELICULAS'] }) => {
   const handleOptionClick = (option) => {
     setSelectedOption(option);
     setIsOpen(false);
+    onChange(option);
   };
 
   return (

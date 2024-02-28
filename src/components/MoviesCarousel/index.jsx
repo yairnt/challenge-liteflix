@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import Slider from 'react-slick';
 import { getMovies, getMoviesFromDB } from "../../apis/movies";
 import arrowUp from "../../assets/arrowup.png"
@@ -40,6 +40,8 @@ const CustomArrow = ({ onClick, direction }) => {
 
 const MoviesCarousel = () => {
   const { allMovies, setAllMovies } = useContext(AuthContext);
+  const [selectedOption, setSelectedOption] = useState('all');
+  const [filteredMovies, setFilteredMovies] = useState([]);
 
   const settings = {
     dots: false,
@@ -88,21 +90,25 @@ const MoviesCarousel = () => {
         ]);
         const combinedMovies = [...moviesFromAPIResponse, ...moviesFromDBResponse];
         setAllMovies(combinedMovies);
+        const filteredMovies = selectedOption === 'MIS PELICULAS'
+        ? combinedMovies.filter(movie => movie.from === 'db')
+        : combinedMovies;
+        setFilteredMovies(filteredMovies);
       } catch (error) {
         console.error('Error getting movies', error);
       }
     };
   
     fetchData();
-  }, []);
+  }, [selectedOption]);
 
   return (
     <div className='carousel-container animate__animated animate__fadeInRight'>
       <div className='dropdown'>
-        <Dropdown />
+        <Dropdown options={['POPULARES', 'MIS PELICULAS']} onChange={setSelectedOption} />
       </div>
       <Slider {...settings}>
-        {allMovies?.map((movie, index) => (
+        {filteredMovies?.map((movie, index) => (
           <div className='carousel-img' key={index}>
             {movie.from === 'api' ? (
               <MovieMiniature
