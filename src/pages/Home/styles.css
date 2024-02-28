@@ -4,6 +4,7 @@
   background-position: center 70%;
   height: 100vh;
   width: 100vw;
+  background-attachment: fixed;
   animation: fadeInOut 2.5s alternate;
   animation-iteration-count: 1;
 }
@@ -35,6 +36,7 @@
     flex-direction: column;
     align-items: center;
     height: auto;
+    background-image: linear-gradient(to bottom, transparent 1%, rgb(24, 24, 24) 75%), url("../../assets/Bkg.png");
   }
 
   .moviescarousel-container {
