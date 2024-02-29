@@ -5,9 +5,10 @@ import arrowUp from "../../assets/arrowup.png"
 import arrowDown from "../../assets/arrowdown.png"
 import MovieMiniature from '../MovieMiniature';
 import AuthContext from '../../context/AuthContext';
+import Dropdown from '../Dropdown';
+import Loading from '../Loading';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import Dropdown from '../Dropdown';
 import './styles.css'
 
 
@@ -42,6 +43,7 @@ const MoviesCarousel = () => {
   const { allMovies, setAllMovies } = useContext(AuthContext);
   const [selectedOption, setSelectedOption] = useState('all');
   const [filteredMovies, setFilteredMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const settings = {
     dots: false,
@@ -85,6 +87,7 @@ const MoviesCarousel = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setIsLoading(true);
         const [moviesFromAPIResponse, moviesFromDBResponse] = await Promise.all([
           getMoviesFromAPI(),
           getUserMovies()
@@ -92,14 +95,17 @@ const MoviesCarousel = () => {
         const combinedMovies = [...moviesFromAPIResponse, ...moviesFromDBResponse];
         setAllMovies(combinedMovies);
         const filteredMovies = selectedOption === 'MIS PELICULAS'
-        ? (combinedMovies?.filter(movie => movie.from === 'db').reverse())
-        : combinedMovies;
+          ? (combinedMovies?.filter(movie => movie.from === 'db').reverse())
+          : combinedMovies;
         setFilteredMovies(filteredMovies);
       } catch (error) {
         console.error('Error getting movies', error);
       }
+      finally {
+        setIsLoading(false);
+      }
     };
-  
+
     fetchData();
   }, [selectedOption]);
 
@@ -108,30 +114,34 @@ const MoviesCarousel = () => {
       <div className='dropdown'>
         <Dropdown options={['POPULARES', 'MIS PELICULAS']} onChange={setSelectedOption} />
       </div>
-      <Slider {...settings}>
-        {filteredMovies?.map((movie, index) => (
-          <div className='carousel-img' key={index}>
-            {movie.from === 'api' ? (
-              <MovieMiniature
-                title={movie.title}
-                img={movie.backdrop_path}
-                rate={movie.vote_average}
-                desc={movie.overview}
-                year={movie.release_date}
-                from={movie.from}
-              />) : (
-              <MovieMiniature
-                title={movie.title}
-                img={movie.imageUrl}
-                rate={10}
-                desc={'Description'}
-                year={'2020'}
-                from={movie.from}
-              />
-            )}
-          </div>
-        ))}
-      </Slider>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <Slider {...settings}>
+          {filteredMovies?.map((movie, index) => (
+            <div className='carousel-img' key={index}>
+              {movie.from === 'api' ? (
+                <MovieMiniature
+                  title={movie.title}
+                  img={movie.backdrop_path}
+                  rate={movie.vote_average}
+                  desc={movie.overview}
+                  year={movie.release_date}
+                  from={movie.from}
+                />) : (
+                <MovieMiniature
+                  title={movie.title}
+                  img={movie.imageUrl}
+                  rate={10}
+                  desc={'Description'}
+                  year={'2020'}
+                  from={movie.from}
+                />
+              )}
+            </div>
+          ))}
+        </Slider>
+      )}
     </div>
   );
 };
